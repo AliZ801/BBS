@@ -4,7 +4,7 @@ using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace BBS.Data
+namespace BBS.DataAccess.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {
