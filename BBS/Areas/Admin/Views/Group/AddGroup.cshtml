@@ -1,0 +1,52 @@
+﻿@model BBS.Models.ViewModel.AdminVM
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var title = "Add New Blood Group";
+
+    if(Model.BGroup.Id != 0)
+    {
+        ViewData["Title"] = "Update Blood Group";
+    }
+    else
+    {
+        ViewData["Title"] = "Add New Blood Group";
+    }
+}
+
+<div class="container">
+    <div class="col-4 border rounded m-0 m-auto">
+        <form method="post" asp-action="AddGroup" class="col-12">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            @if(Model.BGroup.Id != 0)
+            {
+                <input type="hidden" asp-for="@Model.BGroup.Id" />
+                title = "Update Blood Group";
+            }
+
+            <div class="row justify-content-center">
+                <h3 class="pt-1">@title</h3>
+            </div>
+            <hr class="w-75" />
+
+            <div class="row form-group">
+                <label asp-for="@Model.BGroup.Group"></label>
+                <input asp-for="@Model.BGroup.Group" class="form-control" />
+                <span asp-validation-for="@Model.BGroup.Group" class="text-danger"></span>
+            </div>
+
+            <div class="row form-group">
+                @if (Model.BGroup.Id != 0)
+                {
+                    <partial name="_EditAndBackBtn" model="@Model.BGroup.Id" />
+                }
+                else
+                {
+                    <partial name="_CreateAndBackBtn" />
+                }
+            </div>
+
+        </form>
+    </div>
+</div>

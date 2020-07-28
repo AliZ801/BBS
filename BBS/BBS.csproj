@@ -20,8 +20,4 @@
     <ProjectReference Include="..\BBS.DataAccess\BBS.DataAccess.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Areas\Admin\Controllers\" />
-  </ItemGroup>
-
 </Project>
