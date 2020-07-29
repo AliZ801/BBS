@@ -8,6 +8,8 @@ namespace BBS.DataAccess.Data.Repository.IRepository
     {
         IBGroupRepo BGroup { get; }
 
+        IHospitalRepo Hospital { get; }
+
         void Save();
     }
 }

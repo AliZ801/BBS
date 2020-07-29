@@ -1,0 +1,82 @@
+﻿@model BBS.Models.ViewModel.AdminVM
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var title = "Add New Hospital";
+
+    if (Model.Hospital.Id != 0)
+    {
+        ViewData["Title"] = "Update Hospital";
+    }
+    else
+    {
+        ViewData["Title"] = "Add New Hospital";
+    }
+}
+
+<div class="container">
+    <div class="col-5 border rounded m-0 m-auto">
+        <form method="post" asp-action="AddHospital" class="col-12">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            @if (Model.Hospital.Id != 0)
+            {
+                <input type="hidden" asp-for="@Model.Hospital.Id" />
+                title = "Update Hsopital";
+            }
+
+            <div class="row justify-content-center">
+                <h3 class="pt-1">@title</h3>
+            </div>
+            <hr class="w-75" />
+
+            <div class="row form-group">
+                <label asp-for="@Model.Hospital.Name"></label>
+                <input asp-for="@Model.Hospital.Name" class="form-control" />
+                <span asp-validation-for="@Model.Hospital.Name" class="text-danger"></span>
+            </div>
+
+            <div class="row form-group">
+                <label asp-for="@Model.Hospital.Branch"></label>
+                <input asp-for="@Model.Hospital.Branch" class="form-control" />
+                <span asp-validation-for="@Model.Hospital.Branch" class="text-danger"></span>
+            </div>
+
+            <div class="row form-group">
+                <label>Address 1<span class="text-muted">*</span></label>
+                <input asp-for="@Model.Hospital.Address1" class="form-control" />
+                <span asp-validation-for="@Model.Hospital.Address1" class="text-danger"></span>
+            </div>
+
+            <div class="row form-group">
+                <label asp-for="@Model.Hospital.Address2"></label>
+                <input asp-for="@Model.Hospital.Address2" class="form-control" />
+                <span asp-validation-for="@Model.Hospital.Address2" class="text-danger"></span>
+            </div>
+
+            <div class="row form-group">
+                <label asp-for="@Model.Hospital.City"></label>
+                <input asp-for="@Model.Hospital.City" class="form-control" />
+                <span asp-validation-for="@Model.Hospital.City" class="text-danger"></span>
+            </div>
+
+            <div class="row form-group">
+                <label asp-for="@Model.Hospital.PostalCode"></label>
+                <input asp-for="@Model.Hospital.PostalCode" class="form-control" />
+                <span asp-validation-for="@Model.Hospital.PostalCode" class="text-danger"></span>
+            </div>
+
+            <div class="row form-group">
+                @if (Model.Hospital.Id != 0)
+                {
+                    <partial name="_EditAndBackBtn" model="@Model.Hospital.Id" />
+                }
+                else
+                {
+                    <partial name="_CreateAndBackBtn" />
+                }
+            </div>
+
+        </form>
+    </div>
+</div>

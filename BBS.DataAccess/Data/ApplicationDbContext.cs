@@ -15,5 +15,7 @@ namespace BBS.DataAccess.Data
         }
 
         public DbSet<BGroup> BGroup { get; set; }
+
+        public DbSet<Hospital> Hospital { get; set; }
     }
 }

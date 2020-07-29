@@ -9,7 +9,11 @@ namespace BBS.Models.ViewModel
     {
         public BGroup BGroup { get; set; }
 
+        public Hospital Hospital { get; set; }
+
         //DropDown Lists
         public IEnumerable<SelectListItem> BGroupList { get; set; }
+
+        public IEnumerable<SelectListItem> HospitalsList { get; set; }
     }
 }

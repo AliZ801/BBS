@@ -1,0 +1,85 @@
+﻿@model BBS.Models.Hospital
+@{
+    ViewData["Title"] = "Hospital Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header bg-danger text-white">
+        <div class="row">
+            <div class="col-6">
+                <h3>Hospital Id: @Model.Id</h3>
+            </div>
+            <div class="col-6 text-right">
+                <h3>Branch: @Model.Branch</h3>
+            </div>
+        </div>
+    </div>
+    <div class="card-body bg-light">
+        <div class="row">
+            <div class="row col-12">
+                <div class="col-2">
+                    <h5>Hospital Name</h5>
+                </div>
+                <div class="col-10">
+                    <h5>@Model.Name</h5>
+                </div>
+            </div>
+
+            <div class="row col-12 pt-3">
+                <div class="col-2">
+                    <h5>Hospital Branch</h5>
+                </div>
+                <div class="col-10">
+                    <h5>@Model.Branch</h5>
+                </div>
+            </div>
+
+            <div class="row col-12 pt-3">
+                <div class="col-2">
+                    <h5>Address 1</h5>
+                </div>
+                <div class="col-10">
+                    <h5>@Model.Address1</h5>
+                </div>
+            </div>
+
+            <div class="row col-12 pt-3">
+                <div class="col-2">
+                    <h5>Address 2</h5>
+                </div>
+                <div class="col-10">
+                    <h5>@Model.Address2</h5>
+                </div>
+            </div>
+
+            <div class="row col-12 pt-3">
+                <div class="col-2">
+                    <h5>City</h5>
+                </div>
+                <div class="col-10">
+                    <h5>@Model.City</h5>
+                </div>
+            </div>
+
+            <div class="row col-12 pt-3">
+                <div class="col-2">
+                    <h5>Postal Code</h5>
+                </div>
+                <div class="col-10">
+                    <h5>@Model.PostalCode</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer bg-danger">
+        <div class="row">
+            <div class="col-2">
+                <a asp-action="AddHospital" asp-route-id="@Model.Id" class="btn btn-light form-control">Update</a>
+            </div>
+            <div class="col-2">
+                <a asp-action="Index" class="btn btn-light form-control">Back to List</a>
+            </div>
+        </div>
+    </div>
+</div>
