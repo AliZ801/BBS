@@ -1,0 +1,39 @@
+﻿@model BBS.Models.ViewModel.AdminVM
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var title = "Add New Inventory";
+
+    if(Model.Inventory.Id != 0)
+    {
+        ViewData["Title"] = "Update Inventory";
+    }
+    else
+    {
+        ViewData["Title"] = "Add New Inventory";
+    }
+}
+
+<div class="container">
+    <div class="col-4 m-0 m-auto border rounded">
+        <form method="post" asp-action="AddInventory" class="col-6">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            @if(Model.Inventory.Id != 0)
+            {
+                <input type="hidden" asp-for="@Model.Inventory.Id" />
+                title = "Update Inventory";
+            }
+
+            <div class="row justify-content-center">
+                <h3 class="pt-1">@title</h3>
+            </div>
+            <hr class="w-75" />
+
+            <div class="row form-group">
+                <label></label>
+            </div>
+
+        </form>
+    </div>
+</div>

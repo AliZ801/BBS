@@ -14,11 +14,14 @@ namespace BBS.DataAccess.Data.Repository
             _db = db;
             BGroup = new BGroupRepo(_db);
             Hospital = new HospitalRepo(_db);
+            Inventory = new InventoryRepo(_db);
         }
 
         public IBGroupRepo BGroup { get; private set; }
 
         public IHospitalRepo Hospital { get; private set; }
+
+        public IInventoryRepo Inventory { get; private set; }
 
         public void Dispose()
         {

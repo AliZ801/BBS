@@ -11,6 +11,8 @@ namespace BBS.Models.ViewModel
 
         public Hospital Hospital { get; set; }
 
+        public Inventory Inventory { get; set; }
+
         //DropDown Lists
         public IEnumerable<SelectListItem> BGroupList { get; set; }
 

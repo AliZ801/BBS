@@ -10,6 +10,8 @@ namespace BBS.DataAccess.Data.Repository.IRepository
 
         IHospitalRepo Hospital { get; }
 
+        IInventoryRepo Inventory { get; }
+
         void Save();
     }
 }
