@@ -15,6 +15,7 @@ namespace BBS.DataAccess.Data.Repository
             BGroup = new BGroupRepo(_db);
             Hospital = new HospitalRepo(_db);
             Inventory = new InventoryRepo(_db);
+            Branch = new BranchRepo(_db);
         }
 
         public IBGroupRepo BGroup { get; private set; }
@@ -22,6 +23,8 @@ namespace BBS.DataAccess.Data.Repository
         public IHospitalRepo Hospital { get; private set; }
 
         public IInventoryRepo Inventory { get; private set; }
+
+        public IBranchRepo Branch { get; private set; }
 
         public void Dispose()
         {

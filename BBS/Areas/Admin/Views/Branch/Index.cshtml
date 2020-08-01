@@ -1,16 +1,16 @@
 ﻿@{
-    ViewData["Title"] = "Hospitals List";
+    ViewData["Title"] = "Branch List";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="border border-dark rounded">
     <div class="row p-1">
         <div class="col-6">
-            <h3 class="pl-2">Hospital's List</h3>
+            <h3 class="pl-2">Branch List</h3>
         </div>
         <div class="col-6 text-right">
-            <a asp-action="AddHospital" class="btn btn-primary text-white">
-                <i class="fas fa-plus"></i> &nbsp; New Hospital
+            <a asp-action="AddBranch" class="btn btn-primary text-white">
+                <i class="fas fa-plus"></i> &nbsp; New Branch
             </a>
         </div>
         <hr class="w-75" />
@@ -18,9 +18,11 @@
     <br />
     <table id="tblData" class="table table-striped table-bordered table-secondary" style="width:100%">
         <thead>
-            <tr>
+            <tr class="text-center">
                 <th>Sr. No.</th>
-                <th>Hospital Name</th>
+                <th>Hospital</th>
+                <th>Branch Code</th>
+                <th>City</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -28,7 +30,7 @@
 </div>
 
 @section Scripts{
-    <script src="~/js/hospital.js"></script>
+    <script src="~/js/branch.js"></script>
     <style>
         hr {
             border-color: black;

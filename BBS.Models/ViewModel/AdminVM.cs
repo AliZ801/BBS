@@ -11,11 +11,15 @@ namespace BBS.Models.ViewModel
 
         public Hospital Hospital { get; set; }
 
+        public Branch Branch { get; set; }
+
         public Inventory Inventory { get; set; }
 
         //DropDown Lists
         public IEnumerable<SelectListItem> BGroupList { get; set; }
 
         public IEnumerable<SelectListItem> HospitalsList { get; set; }
+
+        public IEnumerable<SelectListItem> BranchList { get; set; }
     }
 }

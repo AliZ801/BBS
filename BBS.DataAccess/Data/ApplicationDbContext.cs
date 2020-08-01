@@ -18,6 +18,8 @@ namespace BBS.DataAccess.Data
 
         public DbSet<Hospital> Hospital { get; set; }
 
+        public DbSet<Branch> Branch { get; set; }
+
         public DbSet<Inventory> Inventory { get; set; }
     }
 }

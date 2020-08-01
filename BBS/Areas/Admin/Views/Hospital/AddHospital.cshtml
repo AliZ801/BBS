@@ -22,7 +22,7 @@
             @if (Model.Hospital.Id != 0)
             {
                 <input type="hidden" asp-for="@Model.Hospital.Id" />
-                title = "Update Hsopital";
+                title = "Update Hospital";
             }
 
             <div class="row justify-content-center">
@@ -34,36 +34,6 @@
                 <label asp-for="@Model.Hospital.Name"></label>
                 <input asp-for="@Model.Hospital.Name" class="form-control" />
                 <span asp-validation-for="@Model.Hospital.Name" class="text-danger"></span>
-            </div>
-
-            <div class="row form-group">
-                <label asp-for="@Model.Hospital.Branch"></label>
-                <input asp-for="@Model.Hospital.Branch" class="form-control" />
-                <span asp-validation-for="@Model.Hospital.Branch" class="text-danger"></span>
-            </div>
-
-            <div class="row form-group">
-                <label>Address 1<span class="text-muted">*</span></label>
-                <input asp-for="@Model.Hospital.Address1" class="form-control" />
-                <span asp-validation-for="@Model.Hospital.Address1" class="text-danger"></span>
-            </div>
-
-            <div class="row form-group">
-                <label asp-for="@Model.Hospital.Address2"></label>
-                <input asp-for="@Model.Hospital.Address2" class="form-control" />
-                <span asp-validation-for="@Model.Hospital.Address2" class="text-danger"></span>
-            </div>
-
-            <div class="row form-group">
-                <label asp-for="@Model.Hospital.City"></label>
-                <input asp-for="@Model.Hospital.City" class="form-control" />
-                <span asp-validation-for="@Model.Hospital.City" class="text-danger"></span>
-            </div>
-
-            <div class="row form-group">
-                <label asp-for="@Model.Hospital.PostalCode"></label>
-                <input asp-for="@Model.Hospital.PostalCode" class="form-control" />
-                <span asp-validation-for="@Model.Hospital.PostalCode" class="text-danger"></span>
             </div>
 
             <div class="row form-group">

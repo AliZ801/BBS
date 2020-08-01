@@ -21,7 +21,7 @@ namespace BBS.DataAccess.Data.Repository
         {
             return _db.Hospital.Select(i => new SelectListItem()
             {
-                Text = i.Id.ToString(),
+                Text = i.Name,
                 Value = i.Id.ToString()
             });
         }
@@ -31,11 +31,6 @@ namespace BBS.DataAccess.Data.Repository
             var hFromDb = _db.Hospital.FirstOrDefault(i => i.Id == hospital.Id);
 
             hFromDb.Name = hospital.Name;
-            hFromDb.Branch = hospital.Branch;
-            hFromDb.Address1 = hospital.Address1;
-            hFromDb.Address2 = hospital.Address2;
-            hFromDb.City = hospital.City;
-            hFromDb.PostalCode = hospital.PostalCode;
 
             _db.SaveChanges();
         }

@@ -9,22 +9,28 @@ var dataTable;
 function loadTableData() {
     dataTable = $('#tblData').DataTable({
         "ajax": {
-            "url": "Hospital/GetAll",
+            "url": "Branch/GetAll",
             "type": "GET",
             "datatype": "json"
         },
         "columns": [
             { "data": "id", "width": "10%" },
-            { "data": "name", "width": "70%" },
+            { "data": "hospital.name", "width": "30%" },
+            { "data": "code", "width": "20%" },
+            { "data": "city", "width": "20%" },
             {
                 "data": "id",
                 "render": function (data) {
                     return `<div class="text-center text-white">
-                        <a href="Hospital/AddGroup/${data}" class="btn btn-primary" style="cursor:pointer; width:40px">
+                        <a href="Branch/Details/${data}" class="btn btn-primary" style="cursor:pointer; width:40px">
+                            <i class="fas fa-eye"></i>
+                        </a>
+                        &nbsp;
+                        <a href="Branch/AddBranch/${data}" class="btn btn-primary" style="cursor:pointer; width:40px">
                             <i class="fas fa-edit"></i>
                         </a>
                         &nbsp;
-                        <a onClick=Delete("Hospital/Delete/${data}") class="btn btn-danger" style="cursor:pointer; width:40px">
+                        <a onClick=Delete("Branch/Delete/${data}") class="btn btn-danger" style="cursor:pointer; width:40px">
                             <i class="fas fa-trash-alt"></i>
                         </a>
                     </div>`;

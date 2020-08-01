@@ -1,0 +1,81 @@
+﻿@model BBS.Models.ViewModel.AdminVM
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var title = "Add New Branch";
+
+    if (Model.Branch.Id != 0)
+    {
+        ViewData["Title"] = "Update Branch";
+    }
+    else
+    {
+        ViewData["Title"] = "Add New Branch";
+    }
+}
+
+<div class="container">
+    <div class="col-5 border rounded m-0 m-auto">
+        <form method="post" asp-action="AddBranch" class="col-12">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            @if (Model.Branch.Id != 0)
+            {
+                <input type="hidden" asp-for="@Model.Branch.Id" />
+                title = "Update Branch";
+            }
+
+            <div class="row justify-content-center">
+                <h3 class="pt-1">@title</h3>
+            </div>
+            <hr class="w-75" style="border-color:black" />
+
+            <div class="row form-group">
+                <label>Hospital Name</label>
+                @Html.DropDownListFor(i => i.Branch.HospitalId, Model.HospitalsList, "Select Hospital Name", new { @class = "form-control" })
+            </div>
+
+            <div class="row form-group">
+                <label asp-for="@Model.Branch.Code"></label>
+                <input asp-for="@Model.Branch.Code" class="form-control" />
+                <span asp-validation-for="@Model.Branch.Code" class="text-danger"></span>
+            </div>
+
+            <div class="row form-group">
+                <label asp-for="@Model.Branch.City"></label>
+                <input asp-for="@Model.Branch.City" class="form-control" />
+                <span asp-validation-for="@Model.Branch.City" class="text-danger"></span>
+            </div>
+
+            <div class="row form-group">
+                <label>Address 1<span class="text-danger">*</span></label>
+                <input asp-for="@Model.Branch.Address1" class="form-control" />
+                <span asp-validation-for="@Model.Branch.Address1" class="text-danger"></span>
+            </div>
+
+            <div class="row form-group">
+                <label asp-for="@Model.Branch.Address2"></label>
+                <input asp-for="@Model.Branch.Address2" class="form-control" />
+                <span asp-validation-for="@Model.Branch.Address2" class="text-danger"></span>
+            </div>
+
+            <div class="row form-group">
+                <label asp-for="@Model.Branch.PostalCode"></label>
+                <input asp-for="@Model.Branch.PostalCode" class="form-control" />
+                <span asp-validation-for="@Model.Branch.PostalCode" class="text-danger"></span>
+            </div>
+
+            <div class="row form-group">
+                @if (Model.Branch.Id != 0)
+                {
+                    <partial name="_EditAndBackBtn" model="@Model.Branch.Id" />
+                }
+                else
+                {
+                    <partial name="_CreateAndBackBtn" />
+                }
+            </div>
+
+        </form>
+    </div>
+</div>
