@@ -32,7 +32,8 @@ namespace BBS.Areas.Admin.Controllers
             {
                 Inventory = new Models.Inventory(),
                 BGroupList = _unitofWork.BGroup.GetDropDownListForBGroup(),
-                HospitalsList = _unitofWork.Hospital.GetDropDownListForHospitals()
+                HospitalsList = _unitofWork.Hospital.GetDropDownListForHospitals(),
+                BranchList = _unitofWork.Branch.GetDropDownListBranch()
             };
 
             if(id != null)
@@ -66,6 +67,7 @@ namespace BBS.Areas.Admin.Controllers
             {
                 AVM.BGroupList = _unitofWork.BGroup.GetDropDownListForBGroup();
                 AVM.HospitalsList = _unitofWork.Hospital.GetDropDownListForHospitals();
+                AVM.BranchList = _unitofWork.Branch.GetDropDownListBranch();
 
                 return View(AVM);
             }
@@ -75,7 +77,23 @@ namespace BBS.Areas.Admin.Controllers
 
         public IActionResult GetAll()
         {
-            return Json(new { data = _unitofWork.Inventory.GetAll(includeProperties: "BGroup,Hospital") });
+            return Json(new { data = _unitofWork.Inventory.GetAll(includeProperties: "BGroup,Hospital,Branch") });
+        }
+
+        [HttpDelete]
+        public IActionResult Delete(int id)
+        {
+            var iFromDb = _unitofWork.Inventory.Get(id);
+
+            if(iFromDb == null)
+            {
+                return Json(new { success = false, message = "Error Deleting Inventory Record!" });
+            }
+
+            _unitofWork.Inventory.Remove(iFromDb);
+            _unitofWork.Save();
+
+            return Json(new { success = true, message = "Inventory Record Deleted Successfully!" });
         }
 
         #endregion

@@ -25,6 +25,12 @@ namespace BBS.Models
         [ForeignKey("HospitalId")]
         public Hospital Hospital { get; set; }
 
+        [Display(Name = "Branch ID")]
+        public int? BranchId { get; set; }
+
+        [ForeignKey("BranchId")]
+        public Branch Branch { get; set; }
+
         [Required]
         public double Quantity { get; set; }
     }

@@ -22,6 +22,7 @@ namespace BBS.DataAccess.Data.Repository
 
             iFromDb.BloodId = inventory.BloodId;
             iFromDb.HospitalId = inventory.HospitalId;
+            iFromDb.BranchId = inventory.BranchId;
             iFromDb.Quantity = inventory.Quantity;
 
             _db.SaveChanges();

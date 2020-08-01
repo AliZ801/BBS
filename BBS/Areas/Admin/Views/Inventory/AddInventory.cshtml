@@ -15,11 +15,11 @@
 }
 
 <div class="container">
-    <div class="col-4 m-0 m-auto border rounded">
-        <form method="post" asp-action="AddInventory" class="col-6">
+    <div class="col-5 m-0 m-auto border rounded">
+        <form method="post" asp-action="AddInventory" class="col-12">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-            @if(Model.Inventory.Id != 0)
+            @if (Model.Inventory.Id != 0)
             {
                 <input type="hidden" asp-for="@Model.Inventory.Id" />
                 title = "Update Inventory";
@@ -28,10 +28,40 @@
             <div class="row justify-content-center">
                 <h3 class="pt-1">@title</h3>
             </div>
-            <hr class="w-75" />
+            <hr class="w-75" style="border-color:black" />
 
             <div class="row form-group">
-                <label></label>
+                <label>Hospital Name</label>
+                @Html.DropDownListFor(i => i.Inventory.HospitalId, Model.HospitalsList, "Select Hospital Name", new { @class = "form-control" })
+            </div>
+
+            <div class="row form-group">
+                <label>Branch Code</label>
+                @Html.DropDownListFor(i => i.Inventory.BranchId, Model.BranchList, "Select Branch Code", new { @class = "form-control" })
+            </div>
+
+            <div class="row form-group">
+                <label>Blood Group</label>
+                @Html.DropDownListFor(i => i.Inventory.BloodId, Model.BGroupList, "Select Blood Group", new { @class = "form-control" })
+            </div>
+
+            <div class="row form-group">
+                <label>Quantity (Units)</label>
+                <input asp-for="@Model.Inventory.Quantity" class="form-control" />
+                <span asp-validation-for="@Model.Inventory.Quantity" class="text-danger"></span>
+            </div>
+
+            <div class="row form-group">
+
+                @if(Model.Inventory.Id != 0)
+                {
+                    <partial name="_EditAndBackBtn" model="@Model.Inventory.Id" />
+                }
+                else
+                {
+                    <partial name="_CreateAndBackBtn" />
+                }
+
             </div>
 
         </form>
